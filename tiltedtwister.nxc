@@ -190,7 +190,8 @@ char staticfaces[]={'L','F','R','B','U','D'};
 char faces[]={'L','F','R','B','U','D'};
 bool cubeGrabbed;
 int  currentAngle; //Current position of turntable
-int  tiltPower=85; //Initial tiltpower. Continuously adjusted depending on actual speed
+int  tiltPower=75; //Initial tiltpower. Continuously adjusted depending on actual speed
+int  maxTiltPower=75; //Initial tiltpower. Continuously adjusted depending on actual speed
 int  grabPower;
 
 struct rgb
@@ -273,8 +274,8 @@ void Tilt()
   if(time > 215)
   {
     tiltPower += 1 + (time-215)/10;
-    if(tiltPower>100)
-      tiltPower=100;
+    if(tiltPower>maxTiltPower)
+      tiltPower=maxTiltPower;
   }
   else
     tiltPower--;
