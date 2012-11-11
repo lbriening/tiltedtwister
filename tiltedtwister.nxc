@@ -280,7 +280,7 @@ void Tilt()
     tiltPower--;
   grabPower=tiltPower/11;
   Wait(TILTREST);
-  OnFwd(OUT_B,-100);
+  OnFwd(OUT_B,-75);
   while(MotorRotationCount(OUT_B)>40);
   OnFwd(OUT_B,-20);
   while(MotorTachoCount(OUT_B)>20);
@@ -302,7 +302,7 @@ void Tilt()
 void GrabCube()
 {
   Coast(OUT_A);
-  OnFwd(OUT_B,100);
+  OnFwd(OUT_B,75);
   while(MotorRotationCount(OUT_B)<20);
   OnFwd(OUT_B,20);
   while(MotorRotationCount(OUT_B)<30);
@@ -317,7 +317,7 @@ void ReleaseCube()
   int tachoNow,tachoPrevious;
   Off(OUT_A);
   Off(OUT_B);
-  OnFwd(OUT_B,-100);
+  OnFwd(OUT_B,-75);
   while(MotorRotationCount(OUT_B)>20);
   OnFwd(OUT_B,-20);
   while(MotorTachoCount(OUT_B)>20);
@@ -344,7 +344,7 @@ void TurnTo(int newAngle)
   {
     if(newAngle==0) //home
     {
-      OnFwd(OUT_A,100);
+      OnFwd(OUT_A,75);
       do
       {
         angle1=MotorRotationCount(OUT_A);
